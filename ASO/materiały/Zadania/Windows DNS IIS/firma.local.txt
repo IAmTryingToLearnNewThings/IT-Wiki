@@ -1,0 +1,154 @@
+============================================================
+        INF.02 – WINDOWS SERVER: DNS + IIS
+============================================================
+
+TEMAT:
+Konfiguracja serwera DNS oraz serwera WWW IIS.
+
+============================================================
+1. TOPOLOGIA
+============================================================
+
+Sieć: 192.168.10.0/24
+
+WINDOWS SERVER 2022
+IP:       192.168.10.10
+Maska:    255.255.255.0
+Brama:    192.168.10.1
+DNS:      192.168.10.10
+
+WINDOWS CLIENT
+IP:       192.168.10.20
+Maska:    255.255.255.0
+Brama:    192.168.10.1
+DNS:      192.168.10.10
+
+
+============================================================
+2. DNS
+============================================================
+
+Na serwerze zainstaluj rolę DNS Server.
+
+Utwórz strefę podstawową:
+
+    firma.local
+
+Utwórz następujące rekordy A:
+
+    ns1.firma.local       -> 192.168.10.10
+    www.firma.local       -> 192.168.10.10
+    serwer.firma.local    -> 192.168.10.10
+    klient.firma.local    -> 192.168.10.20
+
+Utwórz również strefę odwrotną dla sieci:
+
+    192.168.10.0/24
+
+Utwórz odpowiednie rekordy PTR.
+
+SPRAWDZENIE NA KLIENCIE:
+
+    nslookup www.firma.local
+    nslookup serwer.firma.local
+    nslookup klient.firma.local
+
+Sprawdź również:
+
+    ping www.firma.local
+    ping serwer.firma.local
+
+
+============================================================
+3. IIS – STRONA FIRMOWA
+============================================================
+
+Na Windows Server zainstaluj rolę:
+
+    Web Server (IIS)
+
+Utwórz katalog:
+
+    C:\www\firma
+
+Utwórz w nim plik:
+
+    index.html
+
+Treść strony jest dowolna, ale powinna jasno wskazywać,
+że jest to strona firmy.
+
+Utwórz w IIS nową witrynę:
+
+    Nazwa:        Firma
+    Ścieżka:      C:\www\firma
+    IP:           192.168.10.10
+    Port:         80
+    Host name:    www.firma.local
+
+
+============================================================
+4. IIS – INTRANET
+============================================================
+
+Utwórz drugi katalog:
+
+    C:\www\intranet
+
+Utwórz w nim:
+
+    index.html
+
+Dodaj w DNS rekord:
+
+    intranet.firma.local -> 192.168.10.10
+
+Utwórz w IIS drugą witrynę:
+
+    Nazwa:        Intranet
+    Ścieżka:      C:\www\intranet
+    IP:           192.168.10.10
+    Port:         80
+    Host name:    intranet.firma.local
+
+
+============================================================
+5. TEST KOŃCOWY
+============================================================
+
+Na komputerze klienckim sprawdź:
+
+    ping www.firma.local
+    ping intranet.firma.local
+
+    nslookup www.firma.local
+    nslookup intranet.firma.local
+
+Następnie w przeglądarce otwórz:
+
+    http://www.firma.local
+
+oraz:
+
+    http://intranet.firma.local
+
+
+============================================================
+6. WYMAGANIA KOŃCOWE
+============================================================
+
+Po wykonaniu zadania:
+
+[ ] Serwer posiada poprawną konfigurację IP.
+[ ] Klient posiada poprawną konfigurację IP.
+[ ] DNS Server działa.
+[ ] Strefa firma.local działa.
+[ ] Utworzono strefę odwrotną.
+[ ] Rekordy A działają.
+[ ] Rekordy PTR działają.
+[ ] IIS jest zainstalowany.
+[ ] Strona www.firma.local działa.
+[ ] Strona intranet.firma.local działa.
+[ ] Obie strony korzystają z portu 80.
+[ ] Obie strony mają osobne katalogi.
+[ ] Bindingi IIS są skonfigurowane prawidłowo.

@@ -1,0 +1,20 @@
+1. Załóż dodatkowy dysk i podłącz do obrazu VB Windows.
+
+2. Za pomocą diskpart: 
+	a. Stwórz na nowo podpiętym dysku VB partycję o rozmiarze 3 x RAM,
+	b. Sformatuj na NTFS,
+	c. Nadaj etykietę sys,
+	d. Ustal do czego służy,
+	e. Przenieś plik wymiany Windows na tę partycję.
+
+3. Zsynchronizuj czas Windows z serwerem w Polsce; podaj cel aktualnego czasu w systemach.
+
+4. Załóż usera IMIE3it jako zwykłego użytkownika z hasłem ZAQ!2wsx i ustaw wygaszanie konta za rok.
+
+5. Załóż usera admin3it jako zwykłego uzytkownika z hasłem ZAQ!2wsx i ustaw wygaszanie konta za rok.
+
+6. Udostępnij folder C;\zasob jako zasób:dysk3it i ustaw uprawnienia jak poniżej:
+
+lokalizacja\user		IMIE3it			admin3it
+C:\zasob\IMIE3it		RW				R
+		\admin3it		---				RW

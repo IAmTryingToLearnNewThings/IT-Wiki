@@ -1,0 +1,173 @@
+🟢 Poziom łatwy
+
+Zadanie 1
+
+Znajdź wszystkie katalogi znajdujące się w katalogu /etc.
+
+Zadanie 2
+
+Znajdź wszystkie pliki znajdujące się w katalogu /etc.
+
+Zadanie 3
+
+Znajdź wszystkie pliki z rozszerzeniem .conf w katalogu /etc.
+
+Zadanie 4
+
+Znajdź wszystkie pliki z rozszerzeniem .service w katalogu /usr/lib/systemd.
+
+Zadanie 5
+
+Znajdź wszystkie katalogi w katalogu /usr.
+
+Zadanie 6
+
+Znajdź wszystkie dowiązania symboliczne w katalogu /bin.
+
+Zadanie 7
+
+Znajdź wszystkie pliki wykonywalne w katalogu /bin.
+
+Zadanie 8
+
+Znajdź wszystkie pliki ukryte w katalogu /etc.
+
+Zadanie 9
+
+Znajdź wszystkie katalogi o nazwie systemd.
+
+Zadanie 10
+
+Znajdź wszystkie pliki, których nazwa zaczyna się od host.
+
+
+🟡 Poziom średni
+
+Zadanie 11
+
+Znajdź wszystkie pliki należące do użytkownika root.
+
+Zadanie 12
+
+Znajdź wszystkie pliki należące do grupy root.
+
+Zadanie 13
+
+Znajdź wszystkie pliki większe niż 1 MB w katalogu /usr.
+
+Zadanie 14
+
+Znajdź wszystkie pliki mniejsze niż 10 KB w katalogu /etc.
+
+Zadanie 15
+
+Znajdź wszystkie puste katalogi w katalogu /var.
+
+Zadanie 16
+
+Znajdź wszystkie puste pliki w katalogu /var.
+
+Zadanie 17
+
+Znajdź wszystkie pliki z ustawionym bitem SUID.
+
+Zadanie 18
+
+Znajdź wszystkie pliki z ustawionym bitem SGID.
+
+Zadanie 19
+
+Znajdź wszystkie katalogi z ustawionym Sticky Bit.
+
+Zadanie 20
+
+Znajdź wszystkie pliki z prawami 644.
+
+Zadanie 21
+
+Znajdź wszystkie katalogi z prawami 755.
+
+Zadanie 22
+
+Znajdź wszystkie pliki zmodyfikowane w ciągu ostatnich 30 dni.
+
+Zadanie 23
+
+Znajdź wszystkie pliki, do których nie uzyskiwano dostępu od ponad 30 dni.
+
+Zadanie 24
+
+Znajdź wszystkie dowiązania symboliczne w katalogu /usr.
+
+Zadanie 25
+
+Znajdź wszystkie pliki z rozszerzeniem .so.
+
+
+🔴 Poziom trudny
+
+Zadanie 26
+
+Znajdź wszystkie pliki należące do użytkownika root, większe niż 1 MB.
+
+Zadanie 27
+
+Znajdź wszystkie pliki .conf, których właścicielem jest root.
+
+Zadanie 28
+
+Znajdź wszystkie pliki większe niż 5 MB i wyświetl ich szczegółowe informacje.
+
+Zadanie 29
+
+Znajdź wszystkie pliki wykonywalne należące do użytkownika root.
+
+Zadanie 30
+
+Znajdź wszystkie pliki z ustawionym SUID należące do użytkownika root.
+
+Zadanie 31
+
+Znajdź wszystkie katalogi należące do grupy root.
+
+Zadanie 32
+
+Znajdź wszystkie pliki z rozszerzeniem .conf, które mają prawa tylko do odczytu dla innych użytkowników.
+
+Zadanie 33
+
+Znajdź wszystkie pliki znajdujące się maksymalnie dwa poziomy poniżej katalogu /etc.
+
+Zadanie 34
+
+Znajdź wszystkie katalogi znajdujące się maksymalnie trzy poziomy poniżej katalogu /usr.
+
+Zadanie 35
+
+Znajdź wszystkie pliki znajdujące się minimum trzy poziomy poniżej katalogu /etc.
+
+Zadanie 36
+
+Znajdź wszystkie pliki większe niż 100 KB, ale mniejsze niż 1 MB.
+
+Zadanie 37
+
+Znajdź wszystkie pliki wykonywalne, które nie należą do użytkownika root.
+
+Zadanie 38
+
+Znajdź wszystkie pliki z ustawionym bitem SGID należące do grupy root.
+
+Zadanie 39
+
+Znajdź wszystkie pliki .conf, które zostały zmodyfikowane w ciągu ostatnich 60 dni i wyświetl ich szczegółowe informacje.
+
+Zadanie 40
+
+Jednym poleceniem wyszukaj wszystkie pliki:
+
+należące do użytkownika root,
+większe niż 50 KB,
+z rozszerzeniem .conf,
+znajdujące się w katalogu /etc,
+a następnie wyświetl ich szczegółowe informacje.

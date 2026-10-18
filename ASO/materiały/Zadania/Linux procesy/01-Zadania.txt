@@ -1,0 +1,192 @@
+🟢 Poziom łatwy
+Zadanie 1
+
+Wyświetl wszystkie aktualnie uruchomione procesy.
+
+Zadanie 2
+
+Wyświetl tylko procesy należące do użytkownika root.
+
+Zadanie 3
+
+Znajdź PID procesu systemd.
+
+Zadanie 4
+
+Znajdź PID procesu bash.
+
+Zadanie 5
+
+Wyświetl drzewo procesów.
+
+Zadanie 6
+
+Wyświetl procesy w czasie rzeczywistym.
+
+Zadanie 7
+
+Uruchom polecenie sleep 300 w terminalu.
+
+Znajdź jego PID.
+
+Zadanie 8
+
+Sprawdź, jaki rodzic (PPID) ma proces sleep.
+
+Zadanie 9
+
+Wyświetl procesy posortowane według użycia pamięci.
+
+Zadanie 10
+
+Wyświetl procesy posortowane według użycia procesora.
+
+🟡 Poziom średni
+Zadanie 11
+
+Uruchom trzy procesy sleep 300.
+
+Wyświetl tylko te procesy.
+
+Zadanie 12
+
+Zakończ jeden z procesów sleep przy użyciu jego PID.
+
+Zadanie 13
+
+Zakończ wszystkie procesy sleep jednym poleceniem.
+
+Zadanie 14
+
+Uruchom proces w tle.
+
+Sprawdź jego numer zadania (Job ID) oraz PID.
+
+Zadanie 15
+
+Przenieś proces działający w tle na pierwszy plan.
+
+Zadanie 16
+
+Uruchom proces, zatrzymaj go kombinacją Ctrl+Z, a następnie ponownie uruchom w tle.
+
+Zadanie 17
+
+Wyświetl wszystkie zadania uruchomione w bieżącej powłoce.
+
+Zadanie 18
+
+Znajdź procesy należące do aktualnie zalogowanego użytkownika.
+
+Zadanie 19
+
+Wyświetl tylko procesy o nazwie sleep.
+
+Zadanie 20
+
+Znajdź proces, którego PID wynosi 1.
+
+🔴 Poziom trudny
+Zadanie 21
+
+Uruchom dwa procesy sleep.
+
+Zakończ tylko ten o większym PID.
+
+Zadanie 22
+
+Wyświetl PID, PPID oraz nazwę wszystkich procesów.
+
+Zadanie 23
+
+Wyświetl pełną ścieżkę uruchomionego programu bash.
+
+Zadanie 24
+
+Znajdź procesy uruchomione przez użytkownika root, których nazwa zaczyna się od litery s.
+
+Zadanie 25
+
+Wyświetl procesy, których PPID wynosi 1.
+
+Zadanie 26
+
+Znajdź proces wykorzystujący najwięcej pamięci RAM.
+
+Zadanie 27
+
+Znajdź proces wykorzystujący najwięcej CPU.
+
+Zadanie 28
+
+Uruchom proces z obniżonym priorytetem.
+
+Zadanie 29
+
+Zmień priorytet działającego procesu.
+
+Zadanie 30
+
+Wyświetl priorytet wszystkich procesów sleep.
+
+🔥 Poziom egzamin praktyczny
+Zadanie 31
+
+Administrator zauważył kilka procesów sleep, które nie powinny działać.
+
+Znajdź je i zakończ wszystkie jednym poleceniem.
+
+Zadanie 32
+
+Uruchom proces sleep 600 w tle.
+
+Wyloguj się z terminala.
+
+Sprawdź, czy proces nadal działa po ponownym zalogowaniu.
+
+Jeżeli nie – uruchom go tak, aby działał również po wylogowaniu.
+
+Zadanie 33
+
+Wyświetl procesy należące do użytkownika root wraz z PID, PPID oraz użyciem pamięci.
+
+Zadanie 34
+
+Znajdź wszystkie procesy uruchomione z terminala (pts).
+
+Zadanie 35
+
+Wyświetl wszystkie procesy, których nazwa zawiera słowo system.
+
+Zadanie 36
+
+Znajdź proces systemd i wyświetl wszystkie jego procesy potomne.
+
+Zadanie 37
+
+Uruchom trzy procesy sleep.
+
+Jednemu zwiększ priorytet, drugiemu zmniejsz, trzeci pozostaw bez zmian.
+
+Porównaj ich wartości.
+
+Zadanie 38
+
+Wyświetl PID procesu o największym wykorzystaniu pamięci oraz zakończ go.
+
+Zadanie 39
+
+Znajdź wszystkie procesy uruchomione przez aktualnego użytkownika, których nazwa zaczyna się na literę b.
+
+Zadanie 40
+
+Przygotuj jedno polecenie wyświetlające:
+
+PID,
+PPID,
+właściciela,
+użycie CPU,
+użycie pamięci,
+nazwę procesu,
+
+dla wszystkich procesów należących do użytkownika root.

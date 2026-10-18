@@ -1,0 +1,131 @@
+🟢 Zadania 1–10
+
+1
+find /etc -type d
+
+2
+find /etc -type f
+
+3
+find /etc -type f -name "*.conf"
+
+4
+find /usr/lib/systemd -type f -name "*.service"
+
+5
+find /usr -type d
+
+6
+find /bin -type l
+
+7
+find /bin -type f -executable
+
+Można również:
+
+find /bin -type f -perm /111
+
+8
+find /etc -name ".*"
+
+9
+find / -type d -name systemd
+
+10
+find / -name "host*"
+
+
+🟡 Zadania 11–25
+
+11
+find / -user root
+
+12
+find / -group root
+
+13
+find /usr -type f -size +1M
+
+14
+find /etc -type f -size -10k
+
+15
+find /var -type d -empty
+
+16
+find /var -type f -empty
+
+17
+find / -type f -perm -4000
+
+18
+find / -type f -perm -2000
+
+19
+find / -type d -perm -1000
+
+20
+find / -type f -perm 644
+
+21
+find / -type d -perm 755
+
+22
+find / -type f -mtime -30
+
+23
+find / -type f -atime +30
+
+24
+find /usr -type l
+
+25
+find / -type f -name "*.so"
+
+
+🔴 Zadania 26–40
+
+26
+find / -type f -user root -size +1M
+
+27
+find / -type f -user root -name "*.conf"
+
+28
+find / -type f -size +5M -ls
+
+29
+find / -type f -user root -executable lub find / -type f -user root -perm /111
+
+30
+find / -type f -user root -perm -4000
+
+31
+find / -type d -group root
+
+32
+find / -type f -name "*.conf" -perm 644
+
+33
+find /etc -maxdepth 2 -type f
+
+34
+find /usr -maxdepth 3 -type d
+
+35
+find /etc -mindepth 3 -type f
+
+36
+find / -type f -size +100k -size -1M
+
+37
+find / -type f -executable ! -user root
+
+38
+find / -type f -group root -perm -2000
+
+39
+find / -type f -name "*.conf" -mtime -60 -ls
+
+40
+find /etc -type f -user root -size +50k -name "*.conf" -ls
