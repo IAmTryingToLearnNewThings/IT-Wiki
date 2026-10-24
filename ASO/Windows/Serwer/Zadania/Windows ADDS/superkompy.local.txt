@@ -1,0 +1,14 @@
+1. ARCHITEKTURA SIECI:
+- WS (Windows Server): IP 192.168.2.254
+- W10 (Windows 10 / Klient): IP 192.168.2.20
+
+2. DOMENA I ZASOBY SIECIOWE:
+- AD DS (Active Directory Domain Services): superkompy.local
+- Udostępniony katalog sieciowy: INSTALL (zawierający instalator notepad++.msi)
+
+3. POLITYKI GRUPY (GPO) ORAZ WDRAŻANIE:
+- Zdalna instalacja oprogramowania Notepad++ na komputerze klienta z poziomu serwera (poprzez GPO / zasób sieciowy).
+- Konfiguracja wygaszacza ekranu: automatyczna blokada po 3 minutach bezczynności na komputerze klienta.
+- Polityka haseł:
+  * Minimalna długość hasła: 9 znaków[cite: 3]
+  * Wymagana złożoność hasła (włączona opcja Password must meet complexity requirements)

@@ -1,0 +1,66 @@
+# Zadanie praktyczne – Ubuntu Server + Windows 11
+
+**Nazwa domeny:** `3itpiatunio.local`
+
+## 1. Topologia sieci
+
+- Ubuntu Server (US)
+- Windows 11 (W11)
+- Router o adresie IP `192.168.88.1`
+- Oba komputery podłączone do tej samej sieci LAN.
+- Skonfiguruj rezerwacje adresów IP dla Ubuntu Server i Windows 11 na routerze.
+- Adresy IP obu komputerów wybierz samodzielnie.
+
+```text
+                 ROUTER
+               192.168.88.1
+                 /     \
+                /       \
+       Ubuntu Server   Windows 11
+       IP: własny      IP: własny
+       Rezerwacja DHCP Rezerwacja DHCP
+```
+
+Przy założeniu sieci `192.168.88.0/24` użyj maski `255.255.255.0` i bramy `192.168.88.1`. Wybrane adresy muszą być wolne i należeć do tej samej podsieci.
+
+## 2. DNS
+
+Skonfiguruj usługę DNS tak, aby działały następujące nazwy:
+
+- Ubuntu Server: `3itpiatunio.local`
+- Windows 11: `3itpiatuniow11.local`
+
+Wymagania:
+- Każda nazwa ma wskazywać właściwy adres IP.
+- Windows 11 ma korzystać z serwera DNS na Ubuntu Server, jeśli to Ubuntu będzie pełniło tę rolę.
+- Sprawdź rozwiązywanie nazw z obu komputerów.
+
+## 3. WWW
+
+- Skonfiguruj serwer WWW na Ubuntu Server.
+- Udostępnij plik strony `/piatunio/finish.html`.
+- Skonfiguruj usługę na porcie `8080`.
+- Strona ma być dostępna pod adresem:
+
+`http://3itpiatunio.local:8080`
+
+- Sprawdź dostęp do strony z Windows 11.
+
+## 4. FTP
+
+- Skonfiguruj usługę FTP na Ubuntu Server.
+- Utwórz konto użytkownika `adminftp`.
+- Nadaj użytkownikowi `adminftp` uprawnienia odczytu i zapisu (**RW**) do katalogu `/strona`.
+- Sprawdź połączenie FTP z Windows 11 oraz możliwość odczytu i zapisu plików.
+
+## 5. Testy końcowe
+
+- [ ] Rezerwacje DHCP dla obu komputerów działają.
+- [ ] Adresy IP, maska i brama są prawidłowe.
+- [ ] `3itpiatunio.local` wskazuje Ubuntu Server.
+- [ ] `3itpiatunow11.local` wskazuje Windows 11.
+- [ ] Strona otwiera się pod `http://3itpiatunio.local:8080`.
+- [ ] `adminftp` może odczytywać i zapisywać pliki w `/strona`.
+- [ ] Pozostali użytkownicy nie uzyskują niezamierzonego dostępu.
+
+**Ważne:** wybierz adresy IP przed rozpoczęciem pracy i używaj ich konsekwentnie w rezerwacjach DHCP, DNS oraz testach.

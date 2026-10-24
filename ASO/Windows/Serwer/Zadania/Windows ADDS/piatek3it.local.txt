@@ -1,0 +1,12 @@
+1. ARCHITEKTURA SIECI:
+- W10 (Windows 10): IP 192.168.10.10
+- WS (Windows Server): IP 192.168.10.1
+
+2. WYMAGANE USŁUGI I DOMENY:
+- AD DS (Active Directory Domain Services): piatek3it.local
+- DNS: w10.piatek3it.local
+- WWW (Serwer witryn): C:\strona\strona.html
+
+3. KONFIGURACJA USŁUGI FTP (Katalog główny: C:\strona):
+- Użytkownik "adminftp": Uprawnienia RW (Odczyt i Zapis / Read-Write)
+- Wszyscy pozostali użytkownicy ("inni"): Uprawnienia R (Tylko Odczyt / Read-Only)

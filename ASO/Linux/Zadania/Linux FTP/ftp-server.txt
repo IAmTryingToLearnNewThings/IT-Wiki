@@ -1,0 +1,156 @@
+1. Przygotowanie serwera
+
+Skonfiguruj serwer Linux według parametrów:
+
+Adres IP:       192.168.10.10/24
+Brama:          192.168.10.1
+DNS:            192.168.10.10
+Nazwa serwera:  ftp-server
+
+Zainstaluj usługę:
+
+vsftpd
+
+Ustaw ją tak, aby:
+
+uruchamiała się automatycznie wraz z systemem,
+działała na porcie 21,
+umożliwiała logowanie użytkownikom lokalnym,
+umożliwiała dostęp anonimowy.
+2. Struktura katalogów
+
+Utwórz:
+
+/ftp
+├── anonimowi
+│   └── upload
+└── lokalni
+    ├── jan
+    └── anna
+Dostęp anonimowy
+
+Użytkownik anonimowy powinien mieć jako katalog główny:
+
+/ftp/anonimowi
+
+Powinien móc:
+
+przeglądać zawartość,
+pobierać pliki,
+przejść do katalogu upload,
+przesyłać pliki do upload,
+tworzyć katalogi w upload.
+
+Nie powinien mieć możliwości zapisu bezpośrednio w /ftp/anonimowi.
+
+3. Użytkownicy lokalni
+
+Utwórz użytkowników:
+
+jan
+anna
+
+Hasła ustaw według własnego uznania.
+
+Każdy użytkownik powinien mieć własny katalog FTP:
+
+jan  → /ftp/lokalni/jan
+anna → /ftp/lokalni/anna
+
+Użytkownicy lokalni mają mieć możliwość:
+
+pobierania plików,
+wysyłania plików,
+tworzenia katalogów,
+usuwania własnych plików.
+Ważne
+
+Użytkownik nie może wyjść poza swój katalog FTP.
+
+Czyli jan nie może przejść np. do:
+
+/ftp/lokalni/anna
+/etc
+/home
+/
+4. Konfiguracja vsftpd
+
+Skonfiguruj:
+
+/etc/vsftpd.conf
+
+Wymagania:
+
+FTP aktywne,
+lokalni użytkownicy aktywni,
+anonimowi użytkownicy aktywni,
+zapis włączony,
+upload anonimowy w upload,
+chroot dla użytkowników lokalnych,
+użytkownicy lokalni trafiają automatycznie do swoich katalogów,
+anonimowi trafiają do /ftp/anonimowi.
+
+Nie podaję tutaj gotowego pliku vsftpd.conf — spróbujcie skonfigurować go sami.
+
+5. Uprawnienia
+
+Ustaw odpowiednie właścicielstwo i prawa do katalogów.
+
+Szczególnie dopilnuj, żeby:
+
+/ftp/anonimowi
+
+nie był bezpośrednio zapisywalny przez użytkownika anonimowego.
+
+Natomiast:
+
+/ftp/anonimowi/upload
+
+ma pozwalać na zapis.
+
+Po konfiguracji sprawdź:
+
+ls -ld /ftp/anonimowi
+ls -ld /ftp/anonimowi/upload
+6. Testy
+Test 1 — anonimowy
+
+Połącz się z serwerem jako:
+
+anonymous
+
+Sprawdź:
+
+pwd
+ls
+cd upload
+
+Następnie:
+
+pobierz istniejący plik,
+wyślij plik do upload,
+utwórz katalog w upload,
+spróbuj zapisać plik bezpośrednio w katalogu głównym.
+
+Ostatnia operacja powinna się nie udać.
+
+Test 2 — Jan
+
+Zaloguj się jako:
+
+jan
+
+Sprawdź:
+
+utworzenie pliku,
+przesłanie pliku,
+utworzenie katalogu,
+usunięcie pliku,
+próbę przejścia poza katalog użytkownika.
+Test 3 — Anna
+
+Wykonaj analogiczne testy dla:
+
+anna
+
+Sprawdź również, czy anna nie może dostać się do danych jan.

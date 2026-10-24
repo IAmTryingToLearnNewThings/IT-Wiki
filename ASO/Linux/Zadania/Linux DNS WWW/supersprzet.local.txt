@@ -1,0 +1,18 @@
+1. ARCHITEKTURA SIECI:
+- Brama domyślna / Router: 192.168.88.1
+- Ubuntu Server (US): 192.168.88.5
+- Windows 10 (W10): Dowolne IP (automatyczne z DHCP lub statyczne w podsieci 192.168.88.x)
+
+2. WYMAGANE USŁUGI:
+- Usługa DNS:
+  * Domena: supersprzet.local
+  * Serwer DNS powinien rozwiązywać powyższą nazwę na adres IP serwera Ubuntu (192.168.88.5).
+
+- Usługa WWW (Apache):
+  * Port nasłuchu: 8080
+  * Ścieżka do pliku startowego: /strona/start.html
+
+3. KRYTERIA WERYFIKACJI (TEST Z WINDOWS 10):
+- W konfiguracji karty sieciowej na Windows 10 należy ustawić serwer DNS na adres 192.168.88.5.
+- W przeglądarce na Windows 10 należy wpisać adres: http://supersprzet.local:8080/strona/start.html
+- Wynik: Poprawne załadowanie strony startowej z serwera Ubuntu.
