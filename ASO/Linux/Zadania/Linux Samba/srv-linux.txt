@@ -1,0 +1,121 @@
+1. Topologia
+                 SIEĆ LAN
+              192.168.50.0/24
+                     |
+              +------+------+
+              |             |
+       Ubuntu Server      Windows 11
+       192.168.50.10      192.168.50.20
+          SAMBA             klient
+
+Serwer Ubuntu
+- hostname: srv-linux
+- IP: 192.168.50.10/24
+- brama: 192.168.50.1
+- usługa: Samba
+Windows 11
+- IP: 192.168.50.20/24
+- brama: 192.168.50.1
+- komputer służy do testowania udziałów SMB.
+2. Użytkownicy
+Na Ubuntu utwórz dwóch użytkowników:
+jan
+anna
+
+Ustaw im hasła według własnego uznania.
+
+Następnie skonfiguruj ich konta tak, aby mogli korzystać z Samby.
+3. Struktura katalogów
+Utwórz:
+/samba
+├── public
+├── jan
+└── anna
+
+/samba/public
+Udział dostępny dla wszystkich użytkowników.
+
+Uprawnienia:
+- odczyt,
+- zapis,
+- tworzenie katalogów,
+- tworzenie/usuwanie plików.
+/samba/jan
+Dostęp:
+jan   → RW
+anna  → brak dostępu
+
+/samba/anna
+Dostęp:
+anna  → RW
+jan   → brak dostępu
+
+4. Udziały Samby
+Skonfiguruj trzy udziały:
+\\192.168.50.10\public
+\\192.168.50.10\jan
+\\192.168.50.10\anna
+
+Wymagania:
+public
+- dostęp dla użytkowników Samby,
+- odczyt i zapis,
+- możliwość tworzenia katalogów.
+jan
+- dostęp wyłącznie dla użytkownika jan,
+- pełny dostęp RW,
+- anna nie może wejść do udziału.
+anna
+- dostęp wyłącznie dla użytkownika anna,
+- pełny dostęp RW,
+- jan nie może wejść do udziału.
+5. Ważne wymaganie
+Uprawnienia muszą działać na dwóch poziomach:
+Samba
+  ↓
+uprawnienia udziału
+  ↓
+Linux
+  ↓
+chmod / chown
+  ↓
+plik/katalog
+
+Nie wystarczy zrobić np. chmod 777 na wszystko.
+
+Masz skonfigurować uprawnienia tak, żeby użytkownik rzeczywiście nie mógł dostać się do cudzych danych.
+6. Testy z Windows 11
+Na Windows sprawdź:
+\\192.168.50.10
+
+Powinny być widoczne udziały:
+public
+jan
+anna
+
+Zaloguj się jako jan
+Sprawdź:
+public     ✓
+jan        ✓
+anna       ✗
+
+W public:
+- utwórz plik,
+- zmień jego nazwę,
+- usuń plik,
+- utwórz katalog.
+W jan:
+- utwórz plik,
+- utwórz katalog,
+- usuń plik.
+Spróbuj wejść do:
+\\192.168.50.10\anna
+
+Dostęp powinien być odrzucony.
+Zaloguj się jako anna
+Sprawdź:
+public     ✓
+anna       ✓
+jan        ✗
+
+Ponownie wykonaj operacje zapisu i odczytu.
