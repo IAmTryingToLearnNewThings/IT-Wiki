@@ -25,6 +25,7 @@ anna
 Ustaw im hasła według własnego uznania.
 
 Następnie skonfiguruj ich konta tak, aby mogli korzystać z Samby.
+
 3. Struktura katalogów
 Utwórz:
 /samba
@@ -84,6 +85,7 @@ plik/katalog
 Nie wystarczy zrobić np. chmod 777 na wszystko.
 
 Masz skonfigurować uprawnienia tak, żeby użytkownik rzeczywiście nie mógł dostać się do cudzych danych.
+
 6. Testy z Windows 11
 Na Windows sprawdź:
 \\192.168.50.10
@@ -94,6 +96,7 @@ jan
 anna
 
 Zaloguj się jako jan
+
 Sprawdź:
 public     ✓
 jan        ✓
@@ -104,14 +107,17 @@ W public:
 - zmień jego nazwę,
 - usuń plik,
 - utwórz katalog.
+
 W jan:
 - utwórz plik,
 - utwórz katalog,
 - usuń plik.
+
 Spróbuj wejść do:
 \\192.168.50.10\anna
 
 Dostęp powinien być odrzucony.
+
 Zaloguj się jako anna
 Sprawdź:
 public     ✓
