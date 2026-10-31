@@ -9,42 +9,66 @@
     <header>
       <h1>IT Wiki</h1>
     </header>
+    <aside class="sidebar">
+      <a href="../../../index.html">IT Wiki</a>
+      <a href="../../ASO.html">ASO</a>
+      <a href="../../../ELSK/ELSK.html">ELSK</a>
+      <a href="../../EUTK/EUTK.html">EUTK</a>
+      <a href="../../../LSK/LSK.html">LSK</a>
+      <a href="../../../SO/SO.html">SO</a>
+      <a href="../../../UTK/UTK.html">UTK</a>
+    </aside>
     <article>
-      <h2>Linux</h2>
+      <h2>Linux Desktop</h2>
       <p>
-        Witaj w sercu ekosystemu open-source. Sekcja poświęcona systemom Linux została podzielona na dwie uzupełniające się ścieżki: odnalezienie się w
-        codziennym środowisku roboczym oraz profesjonalne wdrażanie i zarządzanie infrastrukturą serwerową. Znajdziesz tu kompendium wiedzy łączące solidne
-        podstawy z zaawansowanymi zagadnieniami sieciowymi.
+        Witaj w strefie poświęconej praktycznej obsłudze i administracji systemem Linux w środowisku lokalnym. Materiały w tej sekcji zostały opracowane ściśle
+        pod kątem wymagań kwalifikacji INF.02 (Przygotowanie stanowiska roboczego do pracy, eksploatacja urządzeń obwodowych i systemów operacyjnych).
+        Znajdziesz tu konkretną wiedzę techniczną niezbędną do sprawnego poruszania się po systemie z poziomu wiersza poleceń (CLI) oraz interfejsu graficznego
+        (GUI).
       </p>
       <h3>Co znajdziesz w tej sekcji?</h3>
       <ul>
         <li>
-          <b>Linux Desktop – Fundamenty i diagnostyka:</b> Opanuj codzienne narzędzia pracy w terminalu, naucz się efektywnie zarządzać procesami
-          (monitorowanie, priorytetyzacja, wysyłanie sygnałów) oraz sprawnie przeszukiwać strukturę systemu plików w poszukiwaniu plików i danych tekstowych.
+          <p>
+            <b>Struktura systemu plików i dyski:</b> Omówienie standardu FHS (Filesystem Hierarchy Standard – /etc, /home, /var, /dev itd.), systemów plików
+            (ext4, XFS, VFAT, NTFS), mechanizmów montowania partycji (mount, umount, plik /etc/fstab) oraz partycjonowania (fdisk, gdisk, gparted).
+          </p>
         </li>
         <li>
-          <b>Server – Usługi sieciowe i infrastruktura:</b> Przejdź na poziom wyżej dzięki materiałom poświęconym konfiguracji kluczowych usług serwerowych.
-          Dowiedz się, jak poprawnie konfigurować interfejsy sieciowe, stawiać i zarządzać usługami adresacji IP (DHCP), domenami (DNS) oraz zabezpieczać ruch
-          sieciowy.
+          <p>
+            <b>Podstawowe polecenia systemowe:</b> Przewodniki i ściągawki z pracy w terminalu – nawigacja po strukturze katalogów (cd, ls, pwd), operacje na
+            plikach i katalogach (cp, mv, rm, mkdir, touch) oraz podgląd treści (cat, less, head, tail).
+          </p>
         </li>
         <li>
-          <b>Automatyzacja i skryptowanie w Bashu:</b> Praktyczne przewodniki po tworzeniu skryptów automatyzujących pracę administratora – od zmiennych i
-          tablic, przez instrukcje warunkowe i pętle, aż po własne funkcje i operacje arytmetyczne.
+          <p>
+            <b>Uprawnienia i własność plików:</b> Praca z systemem praw dostępu – zmiana uprawnień w trybie symbolicznym i numerycznym (chmod), zmiana
+            właściciela i grupy (chown, chgrp), domyślne maski uprawnień (umask) oraz konta użytkowników i uprawnienia administracyjne (sudo, su).
+          </p>
         </li>
         <li>
-          <b>Standard FHS i bezpieczeństwo:</b> Zrozumienie hierarchii katalogów w Linuksie, zaawansowane zarządzanie uprawnieniami (ACL, chmod/chown) oraz
-          konfiguracja bezpiecznych usług (np. serwerów FTP).
+          <p>
+            <b>Zarządzanie użytkownikami i grupami:</b> Polecenia do zakładania, modyfikacji i usuwania kont użytkowników oraz grup (useradd, usermod, userdel,
+            groupadd), a także analiza plików konfiguracyjnych (/etc/passwd, /etc/shadow, /etc/group).
+          </p>
         </li>
         <li>
-          <b>Zadania praktyczne i scenariusze testowe:</b> Sprawdź swoją wiedzę w akcji dzięki starannie przygotowanym zadaniom i laboratoriom, które symulują
-          realne wyzwania administratora systemów linuksowych.
+          <p>
+            <b>Procesy, usługi i diagnostyka:</b> Weryfikacja stanu systemu – monitorowanie procesów (ps, top, htop, kill, pkill), zarządzanie usługami
+            (systemctl), sprawdzanie zużycia pamięci i dysku (free, df, du) oraz analiza logów systemowych (journalctl, katalog /var/log).
+          </p>
+        </li>
+        <li>
+          <p>
+            <b>Menedżery pakietów i instalacja oprogramowania:</b> Instalacja, aktualizacja i usuwanie pakietów z poziomu wiersza poleceń w popularnych
+            dystrybucjach (zarówno w rodzinie Debian/Ubuntu – apt, dpkg, jak i RedHat/Fedora – dnf, rpm).
+          </p>
         </li>
       </ul>
       <p>
         Niezależnie od tego, czy dopiero poznajesz terminal, czy projektujesz architekturę sieciową opartą na Linuksie, ta sekcja dostarczy Ci gotowych wzorców,
         ściągawek i zadań utrwalających wiedzę.
       </p>
-      <hr />
     </article>
     <section>
       <nav>
@@ -52,11 +76,9 @@
         <a href="#zadania">Zadania</a>
       </nav>
     </section>
-    <hr />
     <section>
       <article>
         <h2 id="teoria">Teoria</h2>
-        <hr />
         <nav>
           <a href="#wprowadzenie">Wprowadzenie</a>
           <a href="#podstawy">Podstawy Linuxa</a>
@@ -65,7 +87,6 @@
           <a href="#siec">Sieć</a>
           <a href="#procesy">Procesy i usługi</a>
         </nav>
-        <hr />
       </article>
       <article>
         <h2 id="wprowadzenie">Wprowadzenie</h2>
@@ -92,15 +113,10 @@
       </article>
       <article>
         <h2 id="podstawy">Podstawy</h2>
-        <h3>Strony internetowe</h3>
-        <h4><a href="https://pl.wikibooks.org/wiki/Wikibooks:Strona_g%C5%82%C3%B3wna">Wikibooks.org</a></h4>
         <ul>
           <li>
             <a href="https://pl.wikibooks.org/wiki/Ubuntu/Instalacja_systemu">Instalacja Ubuntu</a>
           </li>
-        </ul>
-        <h3>PDF</h3>
-        <ul>
           <li>
             <a href="Teoria/Linux_najwazniejsze_polecenia.pdf">Najważniejsze polecenia</a>
           </li>
@@ -109,10 +125,8 @@
           </li>
         </ul>
       </article>
-      <hr />
       <article>
         <h2 id="system">System plików i dyski</h2>
-        <h3>PDF</h3>
         <ul>
           <li>
             <a href="Teoria/szukanie.pdf">Szukanie w Linuxie</a>
@@ -125,10 +139,8 @@
           </li>
         </ul>
       </article>
-      <hr />
       <article>
         <h2 id="user">Użytkownicy i uprawnienia</h2>
-        <h3>PDF</h3>
         <ul>
           <li>
             <a href="Teoria/uprawnienia.pdf">Uprawnienia w Linuxie</a>
@@ -138,10 +150,8 @@
           </li>
         </ul>
       </article>
-      <hr />
       <article>
         <h2 id="siec">Sieć</h2>
-        <h3>PDF</h3>
         <ul>
           <li>
             <a href="Teoria/netplan.pdf">Ustawienie netplan</a>
@@ -149,9 +159,6 @@
           <li>
             <a href="Teoria/plik_netplan.pdf">Przykładowy plik konfiguracyjny</a>
           </li>
-        </ul>
-        <h3>YT: <a href="https://www.youtube.com/@RootedPL">RootedPL</a></h3>
-        <ul>
           <li>
             <a href="https://www.youtube.com/watch?v=aT1rHtNLXCc">Graficzna zmiana IP</a>
           </li>
@@ -160,10 +167,8 @@
           </li>
         </ul>
       </article>
-      <hr />
       <article>
         <h2 id="procesy">Procesy i usługi</h2>
-        <h3>PDF</h3>
         <ul>
           <li>
             <a href="Teoria/systemct.pdf">Systemctl cz. 1</a>
@@ -172,31 +177,16 @@
             <a href="Teoria/systemctl1.pdf">Systemctl cz. 2</a>
           </li>
         </ul>
-        <h3>YT: <a href="https://www.youtube.com/@RootedPL">RootedPL</a></h3>
-        <ul>
-          <li>
-            <a href="https://youtu.be/g7VcmdLlxB4?si=IUAoH1pXtA4zmsbw">Konfiguracja serwera DHCP</a>
-          </li>
-          <li>
-            <a href="https://youtu.be/3OTzeZSRm1I?si=vHX8viqzSeOQWrOx">Konfiguracja serwera DNS</a>
-          </li>
-        </ul>
       </article>
     </section>
-    <hr />
     <section>
       <article>
         <h2 id="zadania">Zadania</h2>
-        <hr />
         <nav>
           <a href="#szukanie">Wyszukiwanie</a>
           <a href="#procesy">Procesy</a>
-          <a href="#dns-www">DNS + WWW</a>
-          <a href="#ftp">FTP</a>
-          <a href="#samba">Samba</a>
         </nav>
       </article>
-      <hr />
       <article>
         <h2 id="szukanie">Wyszukiwanie</h2>
         <ul>
@@ -205,59 +195,11 @@
           </li>
         </ul>
       </article>
-      <hr />
       <article>
         <h2 id="procesy">Procesy</h2>
         <ul>
           <li>
             <a href="Zadania/Linux procesy/01-Zadania.txt">Zadania.txt</a>
-          </li>
-        </ul>
-      </article>
-      <hr />
-      <article>
-        <h2 id="dns-www">DNS + WWW</h2>
-        <h3>3itpiatunio.local</h3>
-        <ul>
-          <li>
-            <a href="Zadania/Linux DNS WWW/3itpiatunio.local.jpg">3itpiatunio.local.jpg</a>
-          </li>
-          <li>
-            <a href="Zadania/Linux DNS WWW/3itpiatunio.local.txt">3itpiatunio.local.txt</a>
-          </li>
-        </ul>
-        <h3>supersprzet.local</h3>
-        <ul>
-          <li>
-            <a href="Zadania/Linux DNS WWW/supersprzet.local.jpg">supersprzet.local.jpg</a>
-          </li>
-          <li>
-            <a href="Zadania/Linux DNS WWW/supersprzet.local.txt">supersprzet.local.txt</a>
-          </li>
-        </ul>
-      </article>
-      <hr />
-      <article>
-        <h2 id="ftp">FTP</h2>
-        <h3>ftp-server</h3>
-        <ul>
-          <li>
-            <a href="Zadania/Linux FTP/ftp-server.jpg">ftp-server.jpg</a>
-          </li>
-          <li>
-            <a href="Zadania/Linux FTP/ftp-server.txt">ftp-server.txt</a>
-          </li>
-        </ul>
-      </article>
-      <article>
-        <h2 id="samba">Samba</h2>
-        <h3>srv-linux</h3>
-        <ul>
-          <li>
-            <a href="Zadania/Linux Samba/srv-linux.jpg">srv-linux.jpg</a>
-          </li>
-          <li>
-            <a href="Zadania/Linux Samba/srv-linux.txt">srv-linux.txt</a>
           </li>
         </ul>
       </article>
