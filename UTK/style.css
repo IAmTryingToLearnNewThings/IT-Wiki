@@ -10,3 +10,7 @@ p {
 header {
   background-color: #7cabda;
 }
+
+li {
+  font-size: 20px;
+}
