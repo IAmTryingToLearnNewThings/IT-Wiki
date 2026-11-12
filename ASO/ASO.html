@@ -1,23 +1,52 @@
 <!doctype html>
-<html lang="pl_PL">
+<html lang="pl">
   <head>
     <meta charset="UTF-8" />
-    <link rel="stylesheet" href="style.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="../style.css" />
+    <script src="../site-search.js" defer></script>
     <title>Administracja Sieciowymi Systemami Operacyjnymi</title>
   </head>
-  <body>
-    <header class="wiki">
-      <h1>IT Wiki</h1>
+  <body class="course-page">
+    <header class="site-header">
+      <a class="brand" href="../index.html" aria-label="IT Wiki — strona główna">
+        <span class="brand-mark" aria-hidden="true">it</span>
+        <span class="brand-name">IT Wiki<span class="brand-caption">BAZA WIEDZY</span></span>
+      </a>
+      <nav class="top-nav" aria-label="Nawigacja główna">
+        <a href="../index.html">Strona główna</a>
+        <a href="../index.html#dzialy">Materiały</a>
+        <a href="../Źródła.html">Źródła</a>
+      </nav>
+      <form class="site-search" role="search" hidden>
+        <label for="site-search">Szukaj w IT Wiki</label>
+        <input id="site-search" name="q" type="search" placeholder="Szukaj materiałów..." aria-controls="search-results" aria-expanded="false" autocomplete="off" />
+        <button type="submit" aria-label="Szukaj">
+          <span class="search-icon" aria-hidden="true"></span>
+        </button>
+        <div class="search-results" id="search-results" hidden>
+          <p class="search-results-status" role="status" aria-live="polite"></p>
+          <ul class="search-results-list"></ul>
+        </div>
+      </form>
+      <a class="header-link" href="../Dziennik Nauki – INF.02.pdf">Dziennik nauki <span aria-hidden="true">↗</span></a>
     </header>
-    <aside class="sidebar">
+    <aside class="sidebar" aria-label="Nawigacja po działach">
+      <p class="sidebar-label">DZIAŁY</p>
       <a href="../index.html">IT Wiki</a>
-      <a href="ASO.html">ASO</a>
+      <a href="ASO.html" aria-current="page">ASO</a>
       <a href="../ELSK/ELSK.html">ELSK</a>
       <a href="../EUTK/EUTK.html">EUTK</a>
       <a href="../LSK/LSK.html">LSK</a>
       <a href="../SO/SO.html">SO</a>
       <a href="../UTK/UTK.html">UTK</a>
     </aside>
+    <nav class="breadcrumbs" aria-label="Okruszki nawigacyjne">
+      <ol>
+        <li><a href="../index.html">Strona główna</a></li>
+        <li><span aria-current="page">ASO</span></li>
+      </ol>
+    </nav>
     <article class="content">
       <h2>Administracja Sieciowymi Systemami Operacyjnymi</h2>
       <p>

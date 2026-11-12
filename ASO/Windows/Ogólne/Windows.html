@@ -1,23 +1,53 @@
 <!doctype html>
-<html lang="pl_PL">
+<html lang="pl">
   <head>
     <meta charset="UTF-8" />
-    <link rel="stylesheet" href="style.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="../../../style.css" />
+    <script src="../../../site-search.js" defer></script>
     <title>Windows</title>
   </head>
-  <body>
-    <header>
-      <h1>IT Wiki</h1>
+  <body class="course-page">
+    <header class="site-header">
+      <a class="brand" href="../../../index.html" aria-label="IT Wiki — strona główna">
+        <span class="brand-mark" aria-hidden="true">it</span>
+        <span class="brand-name">IT Wiki<span class="brand-caption">BAZA WIEDZY</span></span>
+      </a>
+      <nav class="top-nav" aria-label="Nawigacja główna">
+        <a href="../../../index.html">Strona główna</a>
+        <a href="../../../index.html#dzialy">Materiały</a>
+        <a href="../../../Źródła.html">Źródła</a>
+      </nav>
+      <form class="site-search" role="search" hidden>
+        <label for="site-search">Szukaj w IT Wiki</label>
+        <input id="site-search" name="q" type="search" placeholder="Szukaj materiałów..." aria-controls="search-results" aria-expanded="false" autocomplete="off" />
+        <button type="submit" aria-label="Szukaj">
+          <span class="search-icon" aria-hidden="true"></span>
+        </button>
+        <div class="search-results" id="search-results" hidden>
+          <p class="search-results-status" role="status" aria-live="polite"></p>
+          <ul class="search-results-list"></ul>
+        </div>
+      </form>
+      <a class="header-link" href="../../../Dziennik Nauki – INF.02.pdf">Dziennik nauki <span aria-hidden="true">↗</span></a>
     </header>
-    <aside class="sidebar">
+    <aside class="sidebar" aria-label="Nawigacja po działach">
+      <p class="sidebar-label">DZIAŁY</p>
       <a href="../../../index.html">IT Wiki</a>
-      <a href="../../ASO.html">ASO</a>
+      <a href="../../ASO.html" aria-current="page">ASO</a>
       <a href="../../../ELSK/ELSK.html">ELSK</a>
       <a href="../../../EUTK/EUTK.html">EUTK</a>
       <a href="../../../LSK/LSK.html">LSK</a>
       <a href="../../../SO/SO.html">SO</a>
       <a href="../../../UTK/UTK.html">UTK</a>
     </aside>
+    <nav class="breadcrumbs" aria-label="Okruszki nawigacyjne">
+      <ol>
+        <li><a href="../../../index.html">Strona główna</a></li>
+        <li><a href="../../ASO.html">ASO</a></li>
+        <li><span aria-current="page">Windows</span></li>
+      </ol>
+    </nav>
     <article class="content">
       <h2>Windows</h2>
       <p>
@@ -27,9 +57,19 @@
       </p>
     </article>
     <section>
-      <nav>
-        <a href="#teoria">Teoria</a>
-        <a href="#zadania">Zadania</a>
+      <nav class="section-switcher" aria-label="Wybierz rodzaj materiałów">
+        <a href="#teoria">
+          <span class="section-switcher-kicker">CZĘŚĆ 01</span>
+          <span class="section-switcher-title">Teoria</span>
+          <span class="section-switcher-description">Instalacja, sieć, udostępnianie i bezpieczeństwo.</span>
+          <span class="section-switcher-arrow" aria-hidden="true">↓</span>
+        </a>
+        <a href="#zadania">
+          <span class="section-switcher-kicker">CZĘŚĆ 02</span>
+          <span class="section-switcher-title">Zadania</span>
+          <span class="section-switcher-description">Praktyczne ćwiczenia z konfiguracji systemu Windows.</span>
+          <span class="section-switcher-arrow" aria-hidden="true">↓</span>
+        </a>
       </nav>
       <h2 id="teoria">Teoria</h2>
       <nav>
@@ -53,7 +93,7 @@
         <h2 id="siec">2. Sieć</h2>
         <ul>
           <li>
-            <a href="Teoria/Sieć/Ręczne ustawianie IP.mp4">Ręczne ustawianie IP (MP4)</a>
+            <a href="Teoria/Ręczne ustawianie IP.mp4">Ręczne ustawianie IP (MP4)</a>
           </li>
         </ul>
       </article>

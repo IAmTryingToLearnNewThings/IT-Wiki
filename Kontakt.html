@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#101820" />
+    <meta name="description" content="Skontaktuj się z IT Wiki, aby zgłosić błąd, nieaktualną informację lub zaproponować nowy temat." />
+    <link rel="stylesheet" href="style.css" />
+    <script src="site-search.js" defer></script>
+    <title>Kontakt — IT Wiki</title>
+  </head>
+  <body class="info-page">
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="IT Wiki — strona główna">
+        <span class="brand-mark" aria-hidden="true">it</span>
+        <span class="brand-name">IT Wiki<span class="brand-caption">BAZA WIEDZY</span></span>
+      </a>
+      <nav class="top-nav" aria-label="Nawigacja główna">
+        <a href="index.html">Strona główna</a>
+        <a href="index.html#dzialy">Materiały</a>
+        <a href="#kontakt" aria-current="page">Kontakt</a>
+      </nav>
+      <form class="site-search" role="search" hidden>
+        <label for="site-search">Szukaj w IT Wiki</label>
+        <input id="site-search" name="q" type="search" placeholder="Szukaj materiałów..." aria-controls="search-results" aria-expanded="false" autocomplete="off" />
+        <button type="submit" aria-label="Szukaj">
+          <span class="search-icon" aria-hidden="true"></span>
+        </button>
+        <div class="search-results" id="search-results" hidden>
+          <p class="search-results-status" role="status" aria-live="polite"></p>
+          <ul class="search-results-list"></ul>
+        </div>
+      </form>
+      <a class="header-link" href="index.html">IT Wiki <span aria-hidden="true">↗</span></a>
+    </header>
+
+    <main class="contact-main">
+      <nav class="breadcrumbs" aria-label="Okruszki nawigacyjne">
+        <ol>
+          <li><a href="index.html">Strona główna</a></li>
+          <li><span aria-current="page">Kontakt</span></li>
+        </ol>
+      </nav>
+      <section class="contact-hero" aria-labelledby="contact-title">
+        <p class="eyebrow"><span class="status-dot" aria-hidden="true"></span> IT WIKI / KONTAKT</p>
+        <h1 id="contact-title">Masz coś do<br /><span>zgłoszenia?</span></h1>
+        <p class="contact-lead">Pomóż rozwijać bazę wiedzy. Każda uwaga i propozycja pomaga utrzymać materiały IT Wiki w dobrej formie.</p>
+      </section>
+
+      <div class="contact-grid">
+        <section class="contact-card" aria-labelledby="feedback-title">
+          <div class="contact-card-heading">
+            <span class="contact-card-icon" aria-hidden="true">01</span>
+            <div>
+              <p class="contact-kicker">TWOJA WIADOMOŚĆ MOŻE DOTYCZYĆ</p>
+              <h2 id="feedback-title">Co chcesz zgłosić?</h2>
+            </div>
+          </div>
+          <ul class="contact-topics">
+            <li><span class="topic-mark" aria-hidden="true">↗</span> Błędy w materiałach</li>
+            <li><span class="topic-mark" aria-hidden="true">↗</span> Nieaktualne informacje</li>
+            <li><span class="topic-mark" aria-hidden="true">↗</span> Propozycje nowych zagadnień</li>
+            <li><span class="topic-mark" aria-hidden="true">↗</span> Sugestie dotyczące funkcjonowania IT Wiki</li>
+          </ul>
+        </section>
+
+        <section class="contact-card contact-method" id="kontakt" aria-labelledby="contact-method-title">
+          <div class="contact-card-heading">
+            <span class="contact-card-icon" aria-hidden="true">@</span>
+            <div>
+              <p class="contact-kicker">NAPISZ DO MNIE</p>
+              <h2 id="contact-method-title">Dane kontaktowe</h2>
+            </div>
+          </div>
+          <div class="contact-placeholder">
+            <span class="contact-placeholder-icon" aria-hidden="true">@</span>
+            <div>
+              <h3>Discord</h3>
+              <p>pasjonat_it13</p>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <div class="contact-back">
+        <a class="button button-primary" href="index.html">Wróć na stronę główną <span aria-hidden="true">←</span></a>
+        <span class="contact-back-note">IT Wiki <span aria-hidden="true">/</span> INF.02</span>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <a class="footer-brand" href="index.html">IT Wiki<span> / INF.02</span></a>
+      <p>Materiały do nauki, zebrane w jednym miejscu.</p>
+      <nav aria-label="Linki dodatkowe">
+        <a href="Dziennik Nauki – INF.02.pdf">Dziennik nauki</a>
+        <a href="Źródła.html">Źródła</a>
+        <a href="Kontakt.html" aria-current="page">Kontakt</a>
+        <a href="O_mnie.html">O mnie</a>
+      </nav>
+      <span class="footer-year">© IT Wiki</span>
+    </footer>
+  </body>
+</html>
