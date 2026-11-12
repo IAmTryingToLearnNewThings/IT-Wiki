@@ -1,0 +1,63 @@
+================================================================================
+ZADANIE LABORATORYJNE: KONFIGURACJA SERWERA DHCP (isc-dhcp-server)
+Kwalifikacja / Moduł: Administracja systemami i usługami sieciowymi
+Środowisko: Linux Server (Debian / Ubuntu)
+================================================================================
+
+1. ZAŁOŻENIA SIECIOWE I PARAMETRY SERWERA
+--------------------------------------------------------------------------------
+- Nazwa hosta serwera:    dhcp-server
+- Interfejs sieciowy:     eth1 (lub enp0s8)
+- Adres IP serwera:       192.168.10.1 /24
+- Sieć lokalna (LAN):     192.168.10.0 /24
+
+2. PARAMETRY USŁUGI DHCP (PULA ADRESACJI I OPCJE GLOBALNE)
+--------------------------------------------------------------------------------
+- Zakres dynamiczny:      192.168.10.100 - 192.168.10.150
+- Maska podsieci:         255.255.255.0
+- Brama domyślna:         192.168.10.254
+- Serwery DNS:            8.8.8.8, 1.1.1.1
+- Domyślny czas dzierżawy: 600 sekund (default-lease-time)
+- Maksymalny czas dzierżawy: 7200 sekund (max-lease-time)
+
+3. REZERWACJA STATYCZNA (STAŁE IP NA PODSTAWIE MAC)
+--------------------------------------------------------------------------------
+- Nazwa hosta:            stacja-robocza
+- Adres fizyczny (MAC):   AA:BB:CC:DD:EE:FF
+- Przydzielony adres IP:  192.168.10.50
+
+4. ZADANIA DO WYKONANIA
+--------------------------------------------------------------------------------
+[ ] Krok 1: Instalacja pakietu 'isc-dhcp-server' w systemie.
+[ ] Krok 2: Wskazanie interfejsu nasłuchu (INTERFACESv4="eth1") w pliku:
+            /etc/default/isc-dhcp-server
+[ ] Krok 3: Skonfigurowanie podsieci 192.168.10.0/24 wraz z pulą adresową,
+            bramą, serwerami DNS oraz czasami dzierżawy w pliku:
+            /etc/dhcp/dhcpd.conf
+[ ] Krok 4: Dodanie wpisu 'host' realizującego rezerwację statyczną dla
+            stacji roboczej w pliku /etc/dhcp/dhcpd.conf.
+[ ] Krok 5: Uruchomienie usługi, ustawienie jej autostartu oraz weryfikacja
+            poprawności działania.
+
+5. WERYFIKACJA I DIAGNOSTYKA
+--------------------------------------------------------------------------------
+- Sprawdzenie statusu usługi:
+  systemctl status isc-dhcp-server
+
+- Podgląd logów systemowych usługi:
+  journalctl -u isc-dhcp-server
+
+- Podgląd aktywnych dzierżaw na serwerze:
+  cat /var/lib/dhcp/dhcpd.leases
+
+- Weryfikacja pliku konfiguracyjnego (bez komentarzy):
+  grep -v '^#' /etc/dhcp/dhcpd.conf
+
+6. CEL ZADANIA (KRYTERIA ZALICZENIA)
+--------------------------------------------------------------------------------
+Po podłączeniu stacji klienckich do sieci lokalnej:
+1) Klient 1 (dynamiczny) automatycznie otrzymuje adres z puli .100 - .150
+   wraz z poprawną maską, bramą oraz adresami DNS.
+2) Klient 2 (o adresie MAC AA:BB:CC:DD:EE:FF) zawsze otrzymuje adres
+   192.168.10.50.
+================================================================================
