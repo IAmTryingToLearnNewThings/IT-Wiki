@@ -569,6 +569,8 @@ p {
 }
 
 .subject-card {
+  display: flex;
+  flex-direction: column;
   min-height: 218px;
   padding: 20px 20px 17px;
   border: 1px solid var(--border);
@@ -625,6 +627,7 @@ p {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  margin-top: auto;
   padding-top: 10px;
   border-top: 1px solid #2b342f;
   color: #c2ccc4;
