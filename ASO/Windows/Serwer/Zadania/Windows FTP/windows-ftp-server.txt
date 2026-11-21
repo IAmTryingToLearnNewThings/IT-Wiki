@@ -1,0 +1,158 @@
+1. Przygotowanie serwera
+
+Skonfiguruj serwer Windows Server według parametrów:
+
+Adres IP:       192.168.20.10/24
+Brama:          192.168.20.1
+DNS:            192.168.20.10
+Nazwa serwera:  WIN-FTP-SRV
+
+Zainstaluj rolę oraz funkcję:
+
+Web Server (IIS) -> FTP Server (FTP Service)
+
+Ustaw usługę (Microsoft FTP Service) tak, aby:
+
+uruchamiała się automatycznie wraz z systemem (Startup type: Automatic),
+działała na porcie 21,
+umożliwiała logowanie użytkownikom lokalnym (Basic Authentication),
+umożliwiała dostęp anonimowy (Anonymous Authentication),
+ruch FTP był przepuszczany przez Zaporę Windows (Windows Defender Firewall).
+
+2. Struktura katalogów
+
+Na dysku C:\ utwórz następującą strukturę folderów:
+
+C:\FTP
+├── Publiczny
+│   └── wrzutnia
+└── Uzytkownicy
+    ├── piotr
+    └── katarzyna
+
+3. Dostęp anonimowy
+
+Użytkownik anonimowy (IUSR) powinien mieć dostęp do:
+
+C:\FTP\Publiczny (jako katalog główny dla sesji anonimowej lub katalog wirtualny)
+
+Powinien móc:
+
+przeglądać zawartość,
+pobierać pliki (Read),
+przejść do katalogu wrzutnia,
+przesyłać pliki do wrzutnia (Write),
+tworzyć katalogi w wrzutnia.
+
+Nie powinien mieć możliwości zapisu bezpośrednio w C:\FTP\Publiczny.
+Wskazówka: Skonfiguruj osobne reguły autoryzacji (FTP Authorization Rules) oraz uprawnienia NTFS dla folderu głównego oraz podfolderu wrzutnia.
+
+4. Użytkownicy lokalni
+
+Utwórz lokalne konta użytkowników w systemie Windows:
+
+piotr
+katarzyna
+
+Hasła ustaw według własnego uznania (zgodnie z polityką złożoności haseł).
+
+Każdy użytkownik powinien mieć własny katalog domowy FTP:
+
+piotr      → C:\FTP\Uzytkownicy\piotr
+katarzyna  → C:\FTP\Uzytkownicy\katarzyna
+
+Użytkownicy lokalni mają mieć możliwość:
+
+pobierania plików,
+wysyłania plików,
+tworzenia katalogów,
+usuwania własnych plików.
+
+Ważne (Izolacja użytkowników)
+
+Skonfiguruj funkcję FTP User Isolation (Izolacja użytkowników FTP) tak, aby użytkownik po zalogowaniu trafiał bezpośrednio do swojego folderu i nie mógł wyjść poza własny katalog FTP.
+
+Czyli piotr nie może przejść np. do:
+
+C:\FTP\Uzytkownicy\katarzyna
+C:\Windows
+C:\
+
+Wskazówka: Użyj opcji izolacji "User name directory (disable global virtual directories)" i zwróć uwagę na wymaganą strukturę katalogu "LocalUser".
+
+5. Konfiguracja witryny FTP w IIS
+
+W Menedżerze internetowych usług informacyjnych (IIS Manager):
+
+utwórz nową witrynę FTP (Add FTP Site),
+ustaw ścieżkę fizyczną na C:\FTP (lub odpowiednio dla izolacji),
+wybierz brak szyfrowania SSL (No SSL) na potrzeby testów w sieci lokalnej,
+skonfiguruj FTP Firewall Support (jeśli wymagane dla trybu pasywnego),
+dostosuj reguły autoryzacji (FTP Authorization Rules) osobno dla użytkowników anonimowych i lokalnych.
+
+Nie podaję tutaj gotowej konfiguracji krok po kroku — spróbuj skonfigurować usługę samodzielnie.
+
+6. Uprawnienia (NTFS oraz FTP Authorization)
+
+Zadbaj o spójność uprawnień na dwóch poziomach:
+1) Uprawnienia systemowe plików (NTFS - zakładka Zabezpieczenia)
+2) Reguły autoryzacji w konsoli IIS (FTP Authorization Rules)
+
+Szczególnie dopilnuj, żeby:
+
+C:\FTP\Publiczny
+
+posiadał dla konta IUSR wyłącznie uprawnienia odczytu (Read & execute, List folder contents, Read).
+
+Natomiast:
+
+C:\FTP\Publiczny\wrzutnia
+
+posiadał dla konta IUSR również uprawnienie zapisu (Write).
+
+Dla folderów użytkowników (piotr, katarzyna) nadaj pełne prawa modyfikacji (Modify) tylko odpowiednim właścicielom, usuwając dziedziczenie dla innych zwykłych użytkowników.
+
+7. Testy
+
+Test 1 — anonimowy (z komputera klienta w sieci 192.168.20.0/24)
+
+Połącz się z serwerem (np. przez eksplorator plików, cmd ftp lub FileZilla) jako:
+
+anonymous (lub ftp)
+
+Sprawdź:
+
+pwd
+dir (lub ls)
+cd wrzutnia
+
+Następnie:
+
+pobierz istniejący plik z folderu Publiczny,
+wyślij plik do folderu wrzutnia,
+utwórz katalog w folderze wrzutnia,
+spróbuj zapisać plik bezpośrednio w katalogu głównym (Publiczny).
+
+Ostatnia operacja powinna zakończyć się odmową dostępu (550 Access is denied).
+
+Test 2 — Piotr
+
+Zaloguj się jako:
+
+piotr
+
+Sprawdź:
+
+czy od razu znajdujesz się w swoim katalogu głównym (/),
+utworzenie i przesłanie pliku,
+utworzenie katalogu,
+usunięcie pliku,
+próbę przejścia wyżej (cd ..) poza katalog użytkownika.
+
+Test 3 — Katarzyna
+
+Wykonaj analogiczne testy dla użytkownika:
+
+katarzyna
+
+Sprawdź również, czy katarzyna nie ma możliwości podejrzenia ani pobrania plików należących do użytkownika piotr.
